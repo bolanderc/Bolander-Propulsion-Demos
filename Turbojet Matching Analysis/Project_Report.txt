@@ -1,0 +1,27 @@
+---------------------------------
+| Homework 5.4 Analysis Part (1) |
+----------------------------------
+
+a) True compressor massflow : 149.2621 g/s
+   Corrected compressor massflow : 402.5159 g/s
+b) Normalized exit pressure thrust : 1.7972
+   Normalized momentum thrust : 1.9555
+   Normalized total thrust : 3.7526
+c) Velocity ratio across the engine : 3.1200
+d) Mach number at diffuser throat : 0.5913
+e) Inlet capture area : 17.3234 cm^2
+f) Total thrust : 147.5681 N
+   Specific Impulse : 5040.6911 s
+   Thrust-specific fuel consumption : 0.7142 lbm/(lbf-hr)
+g) Enthalpy of the fuel : 70.7164 MJ/kg
+
+----------
+| Part 2 |
+----------
+a) Optimal expansion ratio for nozzle : 2.5442
+b) Velocity ratio across engine : 5.6570
+c) Total thrust : 168.0730 N
+   Specific Impulse : 5741.1054 s
+   Thrust-specific fuel consumption : 0.6271 lbm/(lbf-hr)
+d) Assuming the same combustor temperature and inlet throat area:
+   Choking compressor compression ratio : 23.9750

@@ -252,20 +252,17 @@ class MethodOfCharacteristics:
                 theta_inner[-1, -1] = 0.
         return x_inner, y_inner, M_inner, theta_inner
 
-    def moc_nozzle_design(self, M_exit, D_t, gamma=1.4, N=10, bell=True, R_c=True):
+    def moc_nozzle_design(self, M_exit, D_t, gamma=1.4, N=10, bell=True, R_c=0.,
+                          theta_e=None):
         self.N = N
         self.gamma = gamma
         nu_e = _nu_M(M_exit, self.gamma)
         self.theta_max = nu_e/2.
         self.d_theta = self.theta_max/self.N
-        self.theta_w = np.arange(self.d_theta, self.theta_max + self.d_theta, self.d_theta)
+        self.theta_w = np.arange(self.d_theta, self.theta_max + 1e-5, self.d_theta)
         self.nu_w = self.theta_w
         self.M_w = [prandtl_meyer(n, self.gamma, 1.2) for n in self.nu_w]
         self.mu_w = self._mach_angle(self.M_w)
-        if R_c:
-            R_c = 1.5*D_t/2.
-        else:
-            R_c = 0.
         self.x_w = R_c*np.sin(self.theta_w)
         self.y_w = 0.5*D_t + R_c*(1. - np.cos(self.theta_w))
         plt.figure()
@@ -334,31 +331,31 @@ class MethodOfCharacteristics:
 
 
 
-
-plt.close('all')
-case = MethodOfCharacteristics()
-N = 50
-M_exit = 2.0
-D_t = 0.02
-case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.4, R_c=False)
-print("Case 1: M=2.0, gamma = 1.4, N = 50, R_c = 0")
-print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
-print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
-M_exit = 2.0
-D_t = 0.02
-case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.2, R_c=False)
-print("Case 2: M=2.0, gamma = 1.2, N = 50, R_c = 0")
-print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
-print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
-M_exit = 2.0
-D_t = 0.02
-case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.4)
-print("Case 3: M=2.0, gamma = 1.4, N = 50")
-print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
-print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
-M_exit = 2.0
-D_t = 0.02
-case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.2)
-print("Case 4: M=2.0, gamma = 1.2, N = 50")
-print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
-print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
+if __name__ == "__main__":
+    plt.close('all')
+    case = MethodOfCharacteristics()
+    N = 50
+    M_exit = 2.0
+    D_t = 0.02
+    case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.4)
+    print("Case 1: M=2.0, gamma = 1.4, N = 50, R_c = 0")
+    print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
+    print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
+    M_exit = 2.0
+    D_t = 0.02
+    case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.2)
+    print("Case 2: M=2.0, gamma = 1.2, N = 50, R_c = 0")
+    print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
+    print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
+    M_exit = 2.0
+    D_t = 0.02
+    case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.4, R_c=1.5*D_t/2.)
+    print("Case 3: M=2.0, gamma = 1.4, N = 50")
+    print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
+    print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")
+    M_exit = 2.0
+    D_t = 0.02
+    case.moc_nozzle_design(M_exit, D_t, N=N, gamma=1.2, R_c=1.5*D_t/2.)
+    print("Case 4: M=2.0, gamma = 1.2, N = 50")
+    print(f"P = {case.P:5f},\tS = {case.S:5f},\tQ = {case.Q:5f},\tT = {case.T:5f}")
+    print(f"x_n = {case.x_n*100:5f} cm,\t y_n = {case.y_n*100:5f} cm\n")

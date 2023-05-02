@@ -1,0 +1,22 @@
+-------------------------
+| Homework 6.2 Analysis |
+-------------------------
+
+i) Normalized Thrust : 1.2696
+ii) Percent Thrust Delivered by Core Flow : 69.0766 %
+iii) Percent Thrust Delivered by Bypass Flow : 30.9234 %
+iv) Ratio of Bypass Thrust to Core Thrust : 0.4477
+v) Normalized Specific Impulse : 41.1447
+vi) Thrust-Specific-Fuel-Consumption (TSFC) : 2.7115 lbm/lbf-hr
+vii) Bypass Ratio for Optimal Specific Impulse : 9.5405
+viii) Optimal TSFC : 1.6528 lbm/lbf-hr
+ix) Efficiencies From Original Analysis:
+    Thermal : 45.4156 %
+    Propulsive : 14.0158 %
+    Total : 6.3654 %
+x) Efficiencies From Optimal Bypass Analysis:
+   Thermal : 45.4156 %
+   Propulsive : 6.6344 %
+   Total : 3.0131 %
+xi) Numerically Evaluated Optimal Bypass Ratio : 9.5405
+-Not equal because f is not >> 1

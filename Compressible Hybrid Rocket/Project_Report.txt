@@ -1,0 +1,26 @@
+P_inj = 2500 kPa
+Initial Fuel Mass = 1.0 kg
+Initial Chamber Pressure = 790.38 kPa
+
+Incompressible Analysis:
+C_d = 0.6138
+Mean Thrust = 0.1149 kN
+Total Impulse = 2.1975 kN s
+Mean Isp = 290.9779 s
+Consumed Oxidizer Mass = 0.6292 kg
+Consumed Fuel Mass = 0.2578 kg
+Total Consumed Mass = 0.8870 kg
+Mean Injector Pressure Ratio = 2.8234
+
+
+Compressible Analysis:
+C_d = 0.8182
+Mean Thrust = 0.0937 kN
+Total Impulse = 1.7785 kN s
+Mean Isp = 285.4444 s
+Consumed Oxidizer Mass = 0.5006 kg
+Consumed Fuel Mass = 0.2266 kg
+Total Consumed Mass = 0.7272 kg
+Mean Injector Pressure Ratio = 3.3991
+
+**Red Lines on Figures indicate compressible solutions, black lines are for incompressible.
